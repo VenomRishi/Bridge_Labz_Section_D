@@ -26,7 +26,7 @@ public class LinkedList {
 				n = n.next;
 			}
 			Node n1 = null;
-			n1.next = n.next;
+			n1 = n.next;
 			n.next = n1.next;
 			n1 = null;
 		}
@@ -40,16 +40,18 @@ public class LinkedList {
 			counter++;
 			if (n.data == key) {
 				isFound = true;
+				break;
 			}
 			n = n.next;
 		}
 		if (n.data == key) {
 			isFound = true;
-			counter++;
 		}
 		if (isFound) {
+			System.out.println("key found and deleting...");
 			deleteAt(counter);
 		} else {
+			System.out.println("key not found and inserting...");
 			insert(key);
 		}
 
@@ -65,11 +67,12 @@ public class LinkedList {
 				n.data = n1.data;
 				n1.data = temp;
 			}
-			n=n.next;
-			n1=n1.next;
+			n = n.next;
+			n1 = n1.next;
 		}
-		
+
 	}
+
 	public void show() {
 		Node n = head;
 		while (n.next != null) {
@@ -89,5 +92,5 @@ public class LinkedList {
 		str += n.data;
 		return str;
 	}
-	
+
 }

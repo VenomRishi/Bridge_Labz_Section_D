@@ -1,39 +1,24 @@
-package com.bridgelabz.datastructure;
-
-import java.util.Scanner;
+package com.bridgelabz.datastructure.palindromeChecker;
 
 public class Deque {
-	static final int MAX = 100;
-	int arr[];
-	int front;
-	int rear;
-	int size;
-
-	public Deque(int size) {
-		arr = new int[MAX];
-		front = -1;
-		rear = 0;
-		this.size = size;
-	}
-
 	/*
 	 * // Operations on Deque: void insertfront(int key); void insertrear(int key);
 	 * void deletefront(); void deleterear(); bool isFull(); bool isEmpty(); int
 	 * getFront(); int getRear();
 	 */
+	char[] deque;
+	int front;
+	int rear;
+	int size;
 
-	// Checks whether Deque is full or not.
-	boolean isFull() {
-		return ((front == 0 && rear == size - 1) || front == rear + 1);
+	Deque(int size) {
+		deque = new char[size];
+		front = -1;
+		rear = 0;
+		this.size = size;
 	}
 
-	// Checks whether Deque is empty or not.
-	boolean isEmpty() {
-		return (front == -1);
-	}
-
-	// Inserts an element at front
-	void insertfront(int key) {
+	public void insertFront(char data) {
 		// check whether Deque if full or not
 		if (isFull()) {
 			System.out.println("Overflow");
@@ -54,12 +39,14 @@ public class Deque {
 			front = front - 1;
 
 		// insert current element into Deque
-		arr[front] = key;
+		deque[front] = data;
 	}
 
-	// function to inset element at rear end
-	// of Deque.
-	void insertrear(int key) {
+	public boolean isFull() {
+		return ((front == 0 && rear == size - 1) || front == rear + 1);
+	}
+
+	public void insertRear(char data) {
 		if (isFull()) {
 			System.out.println(" Overflow ");
 			return;
@@ -80,11 +67,10 @@ public class Deque {
 			rear = rear + 1;
 
 		// insert current element into Deque
-		arr[rear] = key;
+		deque[rear] = data;
 	}
 
-	// Deletes element at front end of Deque
-	void deletefront() {
+	public void deleteFront() {
 		// check whether Deque is empty or not
 		if (isEmpty()) {
 			System.out.println("Queue Underflow\n");
@@ -105,8 +91,11 @@ public class Deque {
 			front = front + 1;
 	}
 
-	// Delete element at rear end of Deque
-	void deleterear() {
+	public boolean isEmpty() {
+		return (front == -1);
+	}
+
+	public void deleteRear() {
 		if (isEmpty()) {
 			System.out.println(" Underflow");
 			return;
@@ -123,35 +112,22 @@ public class Deque {
 	}
 
 	// Returns front element of Deque
-	int getFront() {
+	public char getFront() {
 		// check whether Deque is empty or not
 		if (isEmpty()) {
 			System.out.println(" Underflow");
-			return -1;
+			return 'u';
 		}
-		return arr[front];
+		return deque[front];
 	}
 
 	// function return rear element of Deque
-	int getRear() {
+	char getRear() {
 		// check whether Deque is empty or not
 		if (isEmpty() || rear < 0) {
 			System.out.println(" Underflow\n");
-			return -1;
+			return 'u';
 		}
-		return arr[rear];
+		return deque[rear];
 	}
-
-	public boolean palindromeChecker(String str) {
-		
-		return false;
-
-	}
-
-	public static void main(String args[]) {
-		Deque d=new Deque(5);
-
-		
-	}
-
 }
