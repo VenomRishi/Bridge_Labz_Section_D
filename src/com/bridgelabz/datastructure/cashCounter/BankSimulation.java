@@ -12,6 +12,7 @@ public class BankSimulation {
 
 		System.out.println("Hi! Welcome to bank simulation: ");
 		for (int i = 0; i < people; i++) {
+			
 			queue.enQueue(i);
 			queue.service();
 			queue.deQueue();
@@ -20,7 +21,7 @@ public class BankSimulation {
 			System.out.println("Queue is empty");
 		}
 		System.out.println("Bank Closing balance is : " + queue.bankBalance);
-
+		scanner.close();
 	}
 
 }

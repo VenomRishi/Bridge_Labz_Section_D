@@ -60,41 +60,29 @@ public class LinkedList {
 		n = null;
 	}
 
-	public void deleteByKey(String key) {
-
-		Node n = head;
-		int counter = -1;
-		while (n.next != null) {
-			counter++;
-			if (n.data.equals(key)) {
-				break;
-			}
-			n = n.next;
-		}
-		if(n.data.equals(key))
-			counter++;
-		deleteAt(counter);
-		System.out.println("key found and deleted");
-
-	}
-
 	public void searchNode(String key) {
-		Node n = head;
 		boolean isFound = false;
+		int counter = -1;
+		Node n = head;
 		while (n.next != null) {
+			counter++;
 			if (n.data.equals(key)) {
 				isFound = true;
 				break;
 			}
 			n = n.next;
 		}
-		// for seeking the last index
-		if (n.data.equals(key))
-			isFound = true;
-
 		if (isFound) {
-			deleteByKey(key);
+			System.out.println("key found and deleting...");
+
+			deleteAt(counter);
+		} else if (n.data.equals(key)) {
+			System.out.println("key found at last and deleting...");
+
+			counter++;
+			deleteAt(counter);
 		} else {
+			System.out.println("key not found and inserting...");
 			insert(key);
 		}
 	}
