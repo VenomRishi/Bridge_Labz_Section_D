@@ -8,9 +8,12 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class OrderedListProgram {
+	
+	public static int size;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+
 		LinkedList list = new LinkedList();
 		String[] strArr = readDataFromFile().split(",");
 		int[] integerArr = new int[strArr.length];
@@ -18,6 +21,7 @@ public class OrderedListProgram {
 			integerArr[i] = Integer.parseInt(strArr[i]);
 			list.insert(integerArr[i]);
 		}
+		size = integerArr.length;
 		list.show();
 		System.out.println("\nSorting");
 		list.sort();
