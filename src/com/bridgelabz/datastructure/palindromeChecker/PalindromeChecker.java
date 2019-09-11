@@ -9,7 +9,7 @@ public class PalindromeChecker {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter string to check palindrome or not");
 //		String str = scanner.next();
-		String str = "bob";
+		String str = "madam";
 		String revFront = "";
 		Deque deque = new Deque(str.length());
 
@@ -17,8 +17,8 @@ public class PalindromeChecker {
 			deque.insertFront(str.charAt(i));
 		}
 		for (int i = 0; i < str.length(); i++) {
-			revFront += deque.getRear();
-			deque.deleteRear();
+			revFront += deque.getFront();
+			deque.deleteFront();
 		}
 		
 		if(revFront.equals(str)) {
