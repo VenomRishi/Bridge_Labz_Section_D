@@ -1,11 +1,7 @@
 package com.bridgelabz.datastructure.palindromeChecker;
 
 public class Deque {
-	/*
-	 * // Operations on Deque: void insertfront(int key); void insertrear(int key);
-	 * void deletefront(); void deleterear(); bool isFull(); bool isEmpty(); int
-	 * getFront(); int getRear();
-	 */
+	
 	char[] deque;
 	int front;
 	int rear;
